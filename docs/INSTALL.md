@@ -296,6 +296,46 @@ This push-based model eliminates the need for a Prometheus intermediary — ensu
 
 
 
+⚙️ Architecture
+
+Data Flow:
+
+iDRAC → ActiveMQ → victoriapump → VictoriaMetrics (direct push)
+
+
+iDRAC — Streams Redfish telemetry data.
+
+ActiveMQ — Acts as the message bus.
+
+victoriapump — Subscribes to telemetry topics and pushes data directly.
+
+VictoriaMetrics — Stores metrics in Prometheus exposition format for visualization and long-term retention.
+
+
+
+Prerequisites
+
+Before deploying, ensure the following:
+
+Docker and Docker Compose are installed
+(see “Do for All Pipelines” section in the main README)
+
+Clone the repository:
+
+git clone https://github.com/dell/iDRAC-Telemetry-Reference-Tools
+
+
+
+
+Configuration (Environment Variables)
+
+VictoriaMetrics integration is fully environment-driven.
+You can configure credentials and the target URL using the following environment variables:
+
+<img width="671" height="129" alt="image" src="https://github.com/user-attachments/assets/8972e813-8673-4c8a-a82b-1fa8691b6141" />
+
+
+
 
 
 
