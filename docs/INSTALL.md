@@ -14,7 +14,7 @@
     - [Post Install for Elasticsearch](#post-install-for-elasticsearch)
     - [Post Install for InfluxDB, Prometheus, or TimescaleDB](#post-install-for-influxdb-prometheus-or-timescaledb)
    - [Kafka Configuration](#kafka-configuration)
-  - [victoriaDB deployment](#Victoria-DB-deployement)
+  - [victoria DB deployment](#Victoria-DB-deployement)
 
 ## Navigation
 
