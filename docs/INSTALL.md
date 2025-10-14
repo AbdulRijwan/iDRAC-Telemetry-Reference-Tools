@@ -283,44 +283,92 @@ export KAFKA_SKIP_VERIFY=true/false
 
 ## Victoria DB deployement
 
- Overview
+VictoriaMetrics Deployment & Integration Overview
+Overview
 
-VictoriaMetrics is a high-performance, cost-effective time-series database optimized for fast ingestion and querying of Prometheus metrics.
+VictoriaMetrics
+is a high-performance, scalable, and cost-efficient time-series database designed for fast ingestion and querying of Prometheus-compatible metrics.
+It’s optimized for long-term storage and real-time analytics of large telemetry datasets.
 
-The victoriapump component in this framework pushes iDRAC Redfish telemetry directly into VictoriaMetrics in Prometheus exposition format.
+Within this framework, the victoriapump component collects iDRAC Redfish telemetry data from the message bus and pushes it directly into VictoriaMetrics using the Prometheus exposition format.
 
-victoriapump is a lightweight component that pushes iDRAC Redfish telemetry data directly into VictoriaMetrics using the Prometheus exposition format.
-Unlike prometheuspump, which exposes metrics for Prometheus to scrape, victoriapump sends the metrics directly to VictoriaMetrics via:
+This push-based model eliminates the need for a Prometheus intermediary — ensuring lower latency, reduced memory usage, and simplified deployment.
 
-POST /api/v1/import/prometheus
+Architecture
 
+Data Flow:
 
-This push-based model eliminates the need for a Prometheus intermediary, reducing latency and simplifying the telemetry pipeline.
-
-🔄 Data Flow
 iDRAC → ActiveMQ → victoriapump → VictoriaMetrics (direct push)
 
-⚙️ Prerequisites
 
-Before proceeding, ensure that you’ve:
+iDRAC — Streams Redfish telemetry data.
 
-Installed Docker and Docker Compose (see “Do for All Pipelines”)
+ActiveMQ — Acts as the message bus.
 
-Cloned the repository:
+victoriapump — Subscribes to telemetry topics and pushes data directly.
+
+VictoriaMetrics — Stores metrics in Prometheus exposition format for visualization and long-term retention.
+
+Key Highlights
+
+Push-based model: Sends data immediately to VictoriaMetrics using
+POST /api/v1/import/prometheus
+
+Lightweight and fast: Ideal for large-scale or edge deployments.
+
+Grafana compatible: Visualize metrics easily using the VictoriaMetrics datasource.
+
+ Prerequisites
+
+Before deploying, ensure the following:
+
+Docker and Docker Compose are installed
+(see “Do for All Pipelines” section in the main README)
+
+Clone the repository:
 
 git clone https://github.com/dell/iDRAC-Telemetry-Reference-Tools
 
-Configuration (Environment Variables)
+ Configuration (Environment Variables)
 
----
-VictoriaMetrics integration is fully environment-driven.  
-You can configure credentials and target URL using the following environment variables:
+VictoriaMetrics integration is fully environment-driven.
+You can configure credentials and the target URL using the following environment variables:
 
-```yaml
 x-env-victoria: &victoria-env
   VICTORIA_USERNAME: ""
   VICTORIA_PASSWORD: ""
-  VICTORIA_METRICS_URL: "http://<victoria_host>:8428/api/v1/import/prometheus"
+  VICTORIA_METRICS_URL: "http://<victoria_host>:8428/api/v1/import/promethe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
