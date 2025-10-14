@@ -334,6 +334,45 @@ You can configure credentials and the target URL using the following environment
 
 <img width="671" height="129" alt="image" src="https://github.com/user-attachments/assets/8972e813-8673-4c8a-a82b-1fa8691b6141" />
 
+Starting VictoriaMetrics and VictoriaPump
+
+To run the entire telemetry pipeline using VictoriaMetrics, execute:
+
+./compose.sh start --victoria-db --victoria-pump
+
+<img width="679" height="120" alt="image" src="https://github.com/user-attachments/assets/d08101fb-b5e5-4ae3-a1f6-09d040086308" />
+
+<img width="1549" height="278" alt="image" src="https://github.com/user-attachments/assets/df00c308-02fe-4d48-9086-7142946dbd0c" />
+
+
+This command:
+
+Launches a local VictoriaMetrics single-node instance on port 8428
+
+Starts the victoriapump container that consumes data from ActiveMQ and pushes metrics directly into VictoriaMetrics.
+
+If you already have an external VictoriaMetrics instance, skip the --victoria-db flag:
+
+./compose.sh start --victoria-pump
+
+
+Post-Installation
+
+Once the containers are running:
+
+Browse to the Config UI (http://<host>:8080) and add iDRAC endpoints.
+
+Logs for VictoriaPump can be viewed using:
+
+docker logs idrac-telemetry-reference-tools-victoriapump-standalone-1
+
+
+You should see lines indicating successful data push to VictoriaMetrics
+
+<img width="1360" height="252" alt="image" src="https://github.com/user-attachments/assets/c4e3a7ae-c74b-436b-805d-069bb64832f1" />
+
+
+
 
 
 
