@@ -331,20 +331,18 @@ git clone https://github.com/dell/iDRAC-Telemetry-Reference-Tools
  Configuration (Environment Variables)
 
 VictoriaMetrics integration is fully environment-driven.
-You can configure credentials and the target URL using the following environment variables:
+You can configure credentials and the target URL using the following en
 
+
+###  Configuration (Environment Variables)
+
+VictoriaMetrics integration is fully environment-driven. You can configure credentials and target URL using the following environment variables:
 
 ```yaml
 x-env-victoria: &victoria-env
   VICTORIA_USERNAME: ""
   VICTORIA_PASSWORD: ""
   VICTORIA_METRICS_URL: "http://<victoria_host>:8428/api/v1/import/prometheus"
-
-
-
-
-
-
 
 
 
