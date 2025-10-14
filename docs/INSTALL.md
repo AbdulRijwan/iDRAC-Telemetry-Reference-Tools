@@ -282,4 +282,3 @@ export KAFKA_SKIP_VERIFY=true/false
 ```
 
 ## Victoria DB deployement
-<img width="1489" height="685" alt="image" src="https://github.com/user-attachments/assets/d6fff430-f57a-44a9-8eaf-23a22b62c679" />
