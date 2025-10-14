@@ -344,6 +344,23 @@ x-env-victoria: &victoria-env
   VICTORIA_PASSWORD: ""
   VICTORIA_METRICS_URL: "http://<victoria_host>:8428/api/v1/import/prometheus"
 
+🚀 Starting VictoriaMetrics and VictoriaPump
+
+To run the entire telemetry pipeline using VictoriaMetrics, execute:
+
+./compose.sh start --victoria-db --victoria-pump
+
+
+This command:
+
+🧩 Launches a local VictoriaMetrics single-node instance on port 8428
+
+📡 Starts the victoriapump container, which consumes iDRAC telemetry from ActiveMQ and pushes metrics directly into VictoriaMetrics
+
+If you already have an external VictoriaMetrics instance running, you can skip the built-in database by running only:
+
+./compose.sh start --victoria-pump
+
 
 
 
