@@ -1,5 +1,3 @@
-
-  
 // Licensed to You under the Apache License, Version 2.0.
 
 package main
@@ -201,5 +199,4 @@ func main() {
         registry := prometheus.NewRegistry()
         handleGroups(groupsIn, registry)
 }
-
 
