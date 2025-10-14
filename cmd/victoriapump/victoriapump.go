@@ -1,3 +1,5 @@
+
+  
 // Licensed to You under the Apache License, Version 2.0.
 
 package main
@@ -19,9 +21,9 @@ import (
 )
 
 var configStrings = map[string]string{
-        "mbhost":        "activemq",
-        "mbport":        "61613",
-        "victoria_url":  "http://localhost:8428/api/v1/import/prometheus",
+        "mbhost":       "activemq",
+        "mbport":       "61613",
+        "victoria_url": "",
         "victoria_user": "",
         "victoria_pass": "",
 }
@@ -92,6 +94,11 @@ func doNonFQDDGuage(value databus.DataValue, registry *prometheus.Registry) {
 }
 
 func pushToVictoriaMetrics(registry *prometheus.Registry) {
+        if configStrings["victoria_url"] == "" {
+                log.Printf("VictoriaMetrics URL not set, skipping push")
+                return
+        }
+
         var buf bytes.Buffer
         enc := expfmt.NewEncoder(&buf, expfmt.FmtText)
         mfs, err := registry.Gather()
