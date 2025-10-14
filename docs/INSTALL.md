@@ -283,18 +283,17 @@ export KAFKA_SKIP_VERIFY=true/false
 
 ## Victoria DB deployement
 
-VictoriaMetrics Deployment & Integration Overview
+VictoriaMetrics Deployment & Integration. 
+
 Overview
 
-VictoriaMetrics
-is a high-performance, scalable, and cost-efficient time-series database designed for fast ingestion and querying of Prometheus-compatible metrics.
+VictoriaMetrics  is a high-performance, scalable, and cost-efficient time-series database designed for fast ingestion and querying of Prometheus-compatible metrics.
 It’s optimized for long-term storage and real-time analytics of large telemetry datasets.
 
 Within this framework, the victoriapump component collects iDRAC Redfish telemetry data from the message bus and pushes it directly into VictoriaMetrics using the Prometheus exposition format.
 
 This push-based model eliminates the need for a Prometheus intermediary — ensuring lower latency, reduced memory usage, and simplified deployment.
 
-Architecture
 
 Data Flow:
 
