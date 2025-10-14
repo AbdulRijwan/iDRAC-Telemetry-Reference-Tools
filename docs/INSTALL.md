@@ -362,6 +362,9 @@ Once the containers are running:
 
 Browse to the Config UI (http://<host>:8080) and add iDRAC endpoints.
 
+<img width="1470" height="386" alt="image" src="https://github.com/user-attachments/assets/0a555587-02e2-4cc8-93f5-ec3a730afcb8" />
+
+
 Logs for VictoriaPump can be viewed using:
 
 docker logs idrac-telemetry-reference-tools-victoriapump-standalone-1
@@ -370,6 +373,22 @@ docker logs idrac-telemetry-reference-tools-victoriapump-standalone-1
 You should see lines indicating successful data push to VictoriaMetrics
 
 <img width="1360" height="252" alt="image" src="https://github.com/user-attachments/assets/c4e3a7ae-c74b-436b-805d-069bb64832f1" />
+
+
+
+<img width="1895" height="928" alt="image" src="https://github.com/user-attachments/assets/a41e483f-183c-483a-9be5-39dcb3920784" />
+
+<img width="622" height="427" alt="image" src="https://github.com/user-attachments/assets/e686f5af-a593-425a-a7eb-337af0d0b7b4" />
+
+<img width="1897" height="708" alt="image" src="https://github.com/user-attachments/assets/d31a5930-ec81-4650-a9a6-2cfca2606bfe" />
+
+We tested On RHEL 10 
+
+<img width="820" height="377" alt="image" src="https://github.com/user-attachments/assets/bf4bbf5b-54e8-4633-bf3c-f30855a2494f" />
+
+
+
+
 
 
 
