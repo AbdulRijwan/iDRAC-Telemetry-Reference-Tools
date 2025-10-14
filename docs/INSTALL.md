@@ -283,75 +283,16 @@ export KAFKA_SKIP_VERIFY=true/false
 
 ## Victoria DB deployement
 
-🗄️ VictoriaMetrics Deployment & Integration
+VictoriaMetrics Deployment & Integration 
 Overview
 
-VictoriaMetrics is a high-performance, scalable, and cost-efficient time-series database designed for fast ingestion and querying of Prometheus-compatible metrics.
+VictoriaMetrics
+is a high-performance, scalable, and cost-efficient time-series database designed for fast ingestion and querying of Prometheus-compatible metrics.
 It’s optimized for long-term storage and real-time analytics of large telemetry datasets.
 
 Within this framework, the victoriapump component collects iDRAC Redfish telemetry data from the message bus and pushes it directly into VictoriaMetrics using the Prometheus exposition format.
 
 This push-based model eliminates the need for a Prometheus intermediary — ensuring lower latency, reduced memory usage, and simplified deployment.
-
-📊 Data Flow
-iDRAC → ActiveMQ → victoriapump → VictoriaMetrics (direct push)
-
-
-iDRAC — Streams Redfish telemetry data
-
-ActiveMQ — Acts as the message bus
-
-victoriapump — Subscribes to telemetry topics and pushes data directly
-
-VictoriaMetrics — Stores metrics in Prometheus exposition format for visualization and long-term retention
-
-✨ Key Highlights
-
-⚡ Push-based model: Sends data immediately using POST /api/v1/import/prometheus
-
-🪶 Lightweight and fast: Ideal for large-scale or edge deployments
-
-📈 Grafana compatible: Visualize metrics easily using the VictoriaMetrics data source
-
-⚙️ Prerequisites
-
-Before deploying, ensure that you have:
-
-Docker and Docker Compose installed (see “Do for All Pipelines” in the main README).
-
-Cloned the repository:
-
-git clone https://github.com/dell/iDRAC-Telemetry-Reference-Tools
-
-🧩 Configuration (Environment Variables)
-
-VictoriaMetrics integration is fully environment-driven.
-You can configure credentials and the target URL using the following environment variables:
-
-x-env-victoria: &victoria-env
-  VICTORIA_USERNAME: ""
-  VICTORIA_PASSWORD: ""
-  VICTORIA_METRICS_URL: "http://<victoria_host>:8428/api/v1/import/prometheus"
-
-🚀 Starting VictoriaMetrics and VictoriaPump
-
-To run the entire telemetry pipeline using VictoriaMetrics, execute:
-
-./compose.sh start --victoria-db --victoria-pump
-
-
-This command:
-
-🧩 Launches a local VictoriaMetrics single-node instance on port 8428
-
-📡 Starts the victoriapump container, which consumes iDRAC telemetry from ActiveMQ and pushes metrics directly into VictoriaMetrics
-
-If you already have an external VictoriaMetrics instance running, skip the built-in database by running only:
-
-./compose.sh start --victoria-pump
-
-
-
 
 
 
