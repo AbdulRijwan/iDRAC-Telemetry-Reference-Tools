@@ -348,9 +348,6 @@ You should see lines indicating successful data push to VictoriaMetrics
 
 <img width="1897" height="708" alt="image" src="https://github.com/user-attachments/assets/d31a5930-ec81-4650-a9a6-2cfca2606bfe" />
 
-We Deployed all container On RHEL 10 
-
-<img width="820" height="377" alt="image" src="https://github.com/user-attachments/assets/bf4bbf5b-54e8-4633-bf3c-f30855a2494f" />
 
 
 
